@@ -1,0 +1,413 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding-top: 70px;
+}
+
+/* Navbar */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: aliceblue;
+    z-index: 1000;
+}
+
+.logo h1 {
+    font-size: 3rem;
+    font-family: 'Arial', sans-serif;
+    text-align: left;
+    margin: 0;
+    padding: 10px;
+    background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 0;
+}
+
+.navbar ul li {
+    font-weight: 600;
+    font-size: 20px;
+    color: rgb(98, 98, 211);
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.navbar ul li:hover {
+    color: rgb(222, 61, 61);
+}
+
+.navbar ul li::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: rgb(222, 61, 61);
+    transition: width 0.3s ease;
+}
+
+.navbar ul li:hover::after {
+    width: 100%;
+}
+
+/* Cards Section */
+#menu-grid {
+    margin: 30px auto 50px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 50px;
+    justify-content: center;
+    text-align: center;
+    max-width: 1000px;
+}
+
+.grid-card {
+    width: 250px;
+    height: 400px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.grid-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.grid-card img {
+    display: inline;
+    width: 250px;
+    height: 300px;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.grid-card h3 {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 2;
+}
+
+.grid-card h3:hover {
+    color: rgb(177, 33, 33);
+}
+
+.grid-card .mark-dash {
+    text-decoration: line-through;
+}
+
+.grid-card p {
+    line-height: 1.5;
+}
+
+.grid-card .btn {
+    margin-top: 2px;
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 10px;
+    background-color: #fff;
+    color: rgb(188, 46, 46);
+    border: 1px solid rgb(188, 46, 46);
+    cursor: pointer;
+    transition: 0.3s ease, color 0.3s ease;
+}
+
+.grid-card .btn:hover {
+    background-color: rgb(188, 46, 46);
+    color: #fff;
+}
+
+.cart {
+    cursor: pointer;
+    position: relative;
+    margin-right: 50px;
+}
+
+.cart img {
+    width: 50px;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.cart img:hover {
+    transform: scale(1.1);
+}
+
+/* cart section */
+#cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: red;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 50%;
+    display: none;
+}
+
+#cart-container {
+    width: 400px;
+    height: 500px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 80px;
+    right: -450px;
+    z-index: 1000;
+    transition: right 0.3s ease-in-out;
+    overflow-y: auto;
+}
+
+#cart-container.open {
+    right: 0px;
+}
+
+#orderdisplay {
+    list-style: none;
+    padding: 0;
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+.order-item-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.order-item-info img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.order-item-btn {
+    display: flex;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.order-item-btn .increase {
+    padding: 5px 10px;
+    border: none;
+    background: rgb(38, 186, 38);
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+}
+
+.order-item-btn .increase:hover {
+    background-color: green;
+}
+
+.order-item-btn .decrease {
+    padding: 5px 10px;
+    border: none;
+    background: rgb(224, 47, 47);
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+}
+
+.order-item-btn .decrease:hover {
+    background-color: rgb(193, 78, 78);
+}
+
+.order-item-btn .remove {
+    padding: 5px 10px;
+    border: none;
+    background: rgb(169, 19, 19);
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+}
+
+h3 {
+    text-align: center;
+    color: #333;
+}
+
+/* Footer section */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #222;
+    color: white;
+    font-size: 14px;
+    bottom: 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer:hover {
+    background-color: #333;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/*  Responsivene Desgin */
+
+/* Tablets */
+@media (max-width: 1024px) {
+    #menu-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+
+    .grid-card {
+        width: 200px;
+        height: 350px;
+    }
+
+    .grid-card img {
+        width: 200px;
+        height: 250px;
+    }
+
+    .grid-card h3 {
+        font-weight: 500;
+        font-size: 15px;
+    }
+
+    .grid-card p {
+        line-height: 1.5;
+    }
+
+    .logo h1 {
+        font-size: 2.5rem;
+    }
+
+    .navbar ul {
+        gap: 20px;
+    }
+
+    .navbar ul li {
+        font-size: 18px;
+    }
+
+    #cart-container {
+        width: 350px;
+        height: 450px;
+    }
+}
+
+/* Mobiles */
+@media (max-width: 768px) {
+    #menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .grid-card {
+        width: 180px;
+        height: 320px;
+    }
+
+    .grid-card img {
+        width: 180px;
+        height: 220px;
+    }
+
+    .logo h1 {
+        font-size: 2rem;
+    }
+
+
+    .navbar ul {
+        gap: 15px;
+    }
+
+    .navbar ul li {
+        font-size: 16px;
+    }
+
+    #cart-container {
+        width: 300px;
+        height: 400px;
+    }
+}
+
+/* Low-end Mobiles */
+@media (max-width: 480px) {
+    #menu-grid {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 15px;
+    }
+
+    .grid-card {
+        width: 100%;
+        height: auto;
+    }
+
+    .grid-card img {
+        width: 100%;
+        height: auto;
+    }
+
+    .logo h1 {
+        font-size: 1.5rem;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+
+    .navbar ul li {
+        font-size: 14px;
+    }
+
+    #cart-container {
+        width: 250px;
+        height: 350px;
+    }
+
+    .cart {
+        margin-right: 20px;
+    }
+
+    .cart img {
+        width: 40px;
+    }
+}
