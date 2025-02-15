@@ -263,7 +263,6 @@ h3 {
 /* Footer section */
 footer {
     position: fixed;
-    /* or use 'absolute' if needed */
     bottom: 0;
     left: 0;
     width: 100%;
